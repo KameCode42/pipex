@@ -3,20 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 12:05:46 by david             #+#    #+#             */
-/*   Updated: 2025/01/19 13:29:52 by david            ###   ########.fr       */
+/*   Updated: 2025/01/23 11:05:14 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	check_args(int argc)
+int	check_args(int argc, char **argv)
 {
 	if (argc != 5)
 	{
 		ft_printf("Usage : ./pipex file1 cmd1 cmd2 file2\n");
+		return (1);
+	}
+	if (is_empty_or_whitespace(argv[2]))
+	{
+		ft_printf("Error: First command is empty or whitespace only.\n");
+		return (1);
+	}
+	if (is_empty_or_whitespace(argv[3]))
+	{
+		ft_printf("Error: Second command is empty or whitespace only.\n");
 		return (1);
 	}
 	return (0);
@@ -55,35 +65,17 @@ void	handle_command_error(char **path, char *cmd_path)
 		free(cmd_path);
 }
 
-void	free_pipex(t_pipex *pipex)
+int	ft_isspace(int c)
 {
-	if (pipex == NULL)
-		return ;
-	if (pipex->input_fd != -1)
-		close(pipex->input_fd);
-	if (pipex->output_fd != -1)
-		close(pipex->output_fd);
-	if (pipex->pipe_fd[0] != -1)
-		close(pipex->pipe_fd[0]);
-	if (pipex->pipe_fd[1] != -1)
-		close(pipex->pipe_fd[1]);
-	free_c(pipex->cmd1);
-	pipex->cmd1 = NULL;
-	free_c(pipex->cmd2);
-	pipex->cmd2 = NULL;
+	return ((c == ' ')
+		|| (c >= 9 && c <= 13));
 }
 
-void	free_c(char **str)
+int	is_empty_or_whitespace(const char *str)
 {
-	int	i;
-
-	i = 0;
-	if (str == NULL)
-		return ;
-	while (str[i] != NULL)
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
+	if (!str)
+		return (1);
+	while (*str && ft_isspace((unsigned char)*str))
+		str++;
+	return (*str == '\0');
 }

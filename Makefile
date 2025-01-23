@@ -10,6 +10,7 @@ FLAGS		= -Wall -Wextra -Werror -Iinc
 SRCS 		= ./src/check_error.c \
 			./src/find_path.c \
 			./src/init_pipex.c \
+			./src/utils.c \
 			./src/pipex.c \
 
 OBJS 		= $(SRCS:.c=.o)

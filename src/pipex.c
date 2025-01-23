@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:21:30 by dle-fur           #+#    #+#             */
-/*   Updated: 2025/01/19 11:36:33 by david            ###   ########.fr       */
+/*   Updated: 2025/01/23 11:05:36 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(int argc, char **argv, char **env)
 {
 	t_pipex	pipex;
 
-	if (check_args(argc))
+	if (check_args(argc, argv))
 		return (1);
 	if (init_pipex(&pipex, argv))
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pipex.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: david <david@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dle-fur <dle-fur@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 14:16:31 by dle-fur           #+#    #+#             */
-/*   Updated: 2025/01/19 12:11:05 by david            ###   ########.fr       */
+/*   Updated: 2025/01/23 11:05:22 by dle-fur          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,16 @@ typedef struct s_pipex
 
 /*-----------------------------------------------*/
 
-//check_error
-int		check_args(int argc);
-int		check_files(t_pipex *pipex);
-void	handle_command_error(char **path, char *cmd_path);
+//utils
 void	free_c(char **str);
 void	free_pipex(t_pipex *pipex);
+
+//check_error
+int		check_args(int argc, char **argv);
+int		check_files(t_pipex *pipex);
+void	handle_command_error(char **path, char *cmd_path);
+int		ft_isspace(int c);
+int		is_empty_or_whitespace(const char *str);
 
 //find_path
 char	**ft_path(char **env);
