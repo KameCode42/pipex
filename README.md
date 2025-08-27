@@ -1,4 +1,4 @@
-<img width="720" height="720" alt="Image" src="https://github.com/user-attachments/assets/06c52ffd-8764-440a-a61a-63f12cf90f97" />
+<img width="720" height="450" alt="Image" src="https://github.com/user-attachments/assets/06c52ffd-8764-440a-a61a-63f12cf90f97" />
 
 # Sujet :
 pipex est un projet qui consiste à reproduire le fonctionnement du pipe (|) en shell. L’objectif est de comprendre comment rediriger l’entrée et la sortie standard entre plusieurs commandes.
